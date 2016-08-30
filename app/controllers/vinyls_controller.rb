@@ -1,8 +1,9 @@
 class VinylsController < ApplicationController
   def all_artists
-    @artists = Vinyl.find
+    @artists = Vinyl.all
   end
 
   def artist
+    @artist = Vinyl.all.sample
   end
 end
