@@ -1,0 +1,11 @@
+<h1>Records For Sale</h1>
+
+<% @vinyls.each do |vinyl| %>
+  <h2><%= link_to vinyl.artist_name, "/vinyls/#{vinyl.id}" %></h2>
+  <h2>Album Title: <%= vinyl.record_title %></h2>
+  <h4>Genre: <%= vinyl.genre %></h4>
+  <h4>Description: <%= vinyl.description %></h4>
+  <h4>Play Time: <%= vinyl.playtime %> min</h4>
+  <h4>Record Label: <%= vinyl.label %></h4>
+  <h4>USD $ <%= vinyl.price %></h4>
+<% end %>
