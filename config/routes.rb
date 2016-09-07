@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/vinyls/:id/edit' => 'vinyls#edit'
   patch '/vinyls/:id' => 'vinyls#update'
+
+  delete '/vinyls/:id' => 'vinyls#destroy'
 end  
   # get '/vinyls/new' => 'vinyls#new'
   # get '/' => 'vinyls#all_artists'

@@ -1,5 +1,3 @@
-<h1>Records For Sale</h1>
-
 <% @vinyls.each do |vinyl| %>
   <h2><%= link_to vinyl.artist_name, "/vinyls/#{vinyl.id}" %></h2>
   <h2>Album Title: <%= vinyl.record_title %></h2>

@@ -16,7 +16,8 @@ class VinylsController < ApplicationController
                           label: params[:label],
                           price: params[:price])
 
-    render 'show.html.erb'
+    flash[:success] = "Your data has been received."
+    redirect_to "/vinyls/#{@vinyl.id}"
   end
 
   def show
@@ -36,7 +37,19 @@ class VinylsController < ApplicationController
                   playtime: params[:playtime],
                   label: params[:label],
                   price: params[:price])
+
+    flash[:success] = "Your data has been updated."
+    redirect_to "/vinyls/#{@vinyl.id}"
+  end
+
+  def destroy
+    @vinyl = Vinyl.find(params[:id])
+    @vinyl.destroy
     
+    flash[:warning] = "And...your data...she gone...bai bai."
+    redirect_to '/vinyls'
+  end
+end  
   # @vinyl.assign_attributes(artist_name: params[:artist_name], 
   #                     record_title: params[:record_title],
   #                     genre: params[:genre],
@@ -45,8 +58,7 @@ class VinylsController < ApplicationController
   #                     label: params[:label],
   #                     price: params[:price])
   # @recipe.save
-  end
-end
+  #
 
   # def all_artists
   #   @artists = Vinyl.all
