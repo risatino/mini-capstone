@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get '/' => 'vinyls#index'
   get '/vinyls' => 'vinyls#index'
 
+  get '/vinyls/chat' => 'vinyls#chat'
+
   get '/vinyls/new' => 'vinyls#new'
   post '/vinyls' => 'vinyls#create'
 
