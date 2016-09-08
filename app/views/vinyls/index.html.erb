@@ -1,9 +1,14 @@
+<div class="row">
 <% @vinyls.each do |vinyl| %>
-  <h2><%= link_to vinyl.artist_name, "/vinyls/#{vinyl.id}" %></h2>
-  <h2>Album Title: <%= vinyl.record_title %></h2>
-  <h4>Genre: <%= vinyl.genre %></h4>
-  <h4>Description: <%= vinyl.description %></h4>
-  <h4>Play Time: <%= vinyl.playtime %> min</h4>
-  <h4>Record Label: <%= vinyl.label %></h4>
-  <h4>USD $ <%= vinyl.price %></h4>
+  <div class="col-md-8">
+    <h2><%= link_to vinyl.artist_name, "/vinyls/#{vinyl.id}" %></h2>
+    <h2>Album Title: <%= vinyl.record_title %></h2>
+    <h4>Genre: <%= vinyl.genre %></h4>
+    <h4>Description: <%= vinyl.description %></h4>
+    <h4>Playtime: <%= vinyl.friendly_playtime %></h4>
+    <h4>Record Label: <%= vinyl.label %></h4>
+    <h4>USD $ <%= vinyl.price %></h4>
+    <h5>Added To Reckless Inventory On: <%= vinyl.friendly_updated_at %>
+  </div>
 <% end %>
+</div>

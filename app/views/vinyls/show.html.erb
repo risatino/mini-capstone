@@ -1,13 +1,19 @@
-<h2>Artist: <%= @vinyl.artist_name %></h2>
-<h2>Album Title: <%= @vinyl.record_title %></h2>
-<h4>Genre: <%= @vinyl.genre %></h4>
-<h4>Description: <%= @vinyl.description %></h4>
-<h4>Play Time: <%= "#{@vinyl.playtime} min" %></h4>
-<h4>Record Label: <%= @vinyl.label %></h4>
-<h4><%= "USD $ #{@vinyl.price}" %></h4>
+<section>
+<h2>Artist: <%= @vinyl.artist_name %>
+<p>Album Title: <%= @vinyl.record_title %></h2>
+<p>
+<h4>Genre: <%= @vinyl.genre %>
+<p>Description: <%= @vinyl.description %>
+<p><%= "#{@vinyl.playtime}" %>
+<p>Record Label: <%= @vinyl.label %>
+<p>Price: <%= number_to_currency(@vinyl.price) %>
+<p>Tax: <%= number_to_currency(@vinyl.tax) %>
+<p>Total: <%= number_to_currency(@vinyl.total) %>
+<p><%= @vinyl.sale_message %></h4>
 
 <%= link_to 'Home', '/vinyls' %>
 <br>
 <%= link_to 'Edit', "/vinyls/#{@vinyl.id}/edit" %>
 <br>
 <%= link_to 'Delete', "/vinyls/#{@vinyl.id}", method: :delete %>
+</section>
