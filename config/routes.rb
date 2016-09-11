@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'vinyls#index'
   get '/vinyls' => 'vinyls#index'
+  get '/vinyls/random' => 'vinyls#random'
 
   get '/vinyls/chat' => 'vinyls#chat'
 

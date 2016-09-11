@@ -1,6 +1,6 @@
 <div class="row">
 <% @vinyls.each do |vinyl| %>
-  <div class="col-md-8">
+  <div class="col-md-12">
     <h2><%= link_to vinyl.artist_name, "/vinyls/#{vinyl.id}" %></h2>
     <h2>Album Title: <%= vinyl.record_title %></h2>
     <h4>Genre: <%= vinyl.genre %></h4>
