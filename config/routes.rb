@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   patch '/vinyls/:id' => 'vinyls#update'
 
   delete '/vinyls/:id' => 'vinyls#destroy'
+
+  
 end  
   # get '/vinyls/new' => 'vinyls#new'
   # get '/' => 'vinyls#all_artists'

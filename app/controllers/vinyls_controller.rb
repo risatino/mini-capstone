@@ -43,6 +43,7 @@ class VinylsController < ApplicationController
   def show
     # if params[:id] == "random"
       @vinyl = Vinyl.all.sample
+      @supplier = @vinyl.supplier.name
     # else
     #   @vinyl = Vinyl.find(params[:id])
     # end
