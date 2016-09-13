@@ -36,6 +36,8 @@ class VinylsController < ApplicationController
                           label: params[:label],
                           price: params[:price])
 
+    # need to add Image code here.
+
     flash[:success] = "Your data has been received."
     redirect_to "/vinyls/#{@vinyl.id}"
   end
