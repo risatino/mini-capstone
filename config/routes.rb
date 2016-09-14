@@ -15,7 +15,12 @@ Rails.application.routes.draw do
 
   delete '/vinyls/:id' => 'vinyls#destroy'
 
-  
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 end  
   # get '/vinyls/new' => 'vinyls#new'
   # get '/' => 'vinyls#all_artists'

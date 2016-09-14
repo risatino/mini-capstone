@@ -34,9 +34,13 @@ class VinylsController < ApplicationController
                           description: params[:description],
                           playtime: params[:playtime],
                           label: params[:label],
-                          price: params[:price])
-
-    # need to add Image code here.
+                          price: params[:price]
+                          )
+    
+    # supplier_id: params[:supplier][:supplier_id] 
+    # must have the foreign key from the associated table
+    # same as Image model table bmust have the vinyl_id: params[:vinyl_id] 
+    # need to add Image code here Image.create(url: params[:image], product_id: @product.id)
 
     flash[:success] = "Your data has been received."
     redirect_to "/vinyls/#{@vinyl.id}"
