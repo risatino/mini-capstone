@@ -11,10 +11,31 @@
 <p>Total: <%= number_to_currency(@vinyl.total) %>
 <p><%= @vinyl.sale_message %></h4>
 
+
 <%= link_to 'Home', '/vinyls' %>
 <br>
 <%= link_to 'Edit', "/vinyls/#{@vinyl.id}/edit" %>
 <br>
 <%= link_to 'Delete', "/vinyls/#{@vinyl.id}", method: :delete %>
+
 <p>Supplied By: <%= @supplier %></p>
 </section>
+
+<h1>Buy Vinyl</h1>
+<%= form_tag '/orders', method: :post do %>
+  <div>
+    <%= label_tag :user_id %>
+    <%= text_field_tag :user_id %>
+  </div>
+    <div>
+    <%= label_tag :vinyl_id %>
+    <%= text_field_tag :vinyl_id %>
+  </div>
+  <div>
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity %>
+  </div>
+  <div>
+    <%= submit_tag 'Buy Now' %>
+  </div> 
+<% end %>

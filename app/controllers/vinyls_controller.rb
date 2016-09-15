@@ -1,4 +1,7 @@
 class VinylsController < ApplicationController
+
+  before_action :authenticate_user!, except: [:index, :new]
+
   def index
     @vinyls = Vinyl.all
     sort_attribute = params[:sort]

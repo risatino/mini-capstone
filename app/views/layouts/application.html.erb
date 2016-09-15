@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MiniCapstone</title>
+    <title>Mini-Capstone</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,6 +20,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">The New Reckless Records</a>
+          <!-- <a><%= current_user %></a> -->
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,9 +67,13 @@
                 <li><a href="/vinyls?discount=18">Discount Items</a></li>
                 <li><a href="/vinyls/random %>">Random Items</a></li>
                 <li role="separator" class="divider"></li>
+
+                <% if current_user %>
+                  <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
+                <% end %>  
+
                 <li><a href="/signup %>">Sign Up</a></li>
                 <li><a href="/login %>">Log In</a></li>
-                <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
                 <li><a href="https://reckless.co.uk/">Reckless in London</a></li>
               </ul>
             </li>
