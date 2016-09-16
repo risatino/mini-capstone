@@ -38,8 +38,7 @@ class VinylsController < ApplicationController
                           playtime: params[:playtime],
                           label: params[:label],
                           price: params[:price],
-                          img_url: params[:img_url]
-                          )
+                          supplier_id: params[:supplier_id])
     
     # supplier_id: params[:supplier][:supplier_id] 
     # must have the foreign key from the associated table
@@ -53,7 +52,7 @@ class VinylsController < ApplicationController
   def show
     # if params[:id] == "random"
       @vinyl = Vinyl.all.sample
-      @supplier = @vinyl.supplier.name
+      @supplier = @vinyl.supplier
     # else
     #   @vinyl = Vinyl.find(params[:id])
     # end
