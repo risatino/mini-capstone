@@ -1,2 +1,7 @@
 <h1>This is your order.</h1>
-<p>Order Vinyl Quantity: <%= @order.quantity %> <%= @order.vinyl.artist_name %></p>
+<p>Order ID, Artist Name: <%= @order.id %>, <%= @order.vinyl.artist_name %></p>
+<p>Order Vinyl Quantity: <%= @order.quantity %></p>
+<br>
+<p>Subtotal: <%= number_to_currency(@order.subtotal) %></p>
+<p>Tax: <%= number_to_currency(@order.tax) %></p>
+<p>Total: <%= number_to_currency(@order.total) %></p>

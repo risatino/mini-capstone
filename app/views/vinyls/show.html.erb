@@ -18,7 +18,7 @@
 <br>
 <%= link_to 'Delete', "/vinyls/#{@vinyl.id}", method: :delete %>
 
-<p>Supplied By: <%= @supplier %></p>
+<p><a href="/suppliers/<%= @supplier.id %>"></a>Supplied By: <%= @supplier.name %></p>
 </section>
 
 <h1>Buy Vinyl</h1>
@@ -28,12 +28,10 @@
     <%= text_field_tag :user_id %>
   </div>
     <div>
-    <%= label_tag :vinyl_id %>
-    <%= text_field_tag :vinyl_id %>
+    <%= hidden_field_tag :vinyl_id, @product.id %>
   </div>
   <div>
-    <%= label_tag :quantity %>
-    <%= text_field_tag :quantity %>
+    <%= text_field_tag :quantity, nil, placeholder: "Quantity" %>
   </div>
   <div>
     <%= submit_tag 'Buy Now' %>

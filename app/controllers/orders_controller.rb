@@ -1,12 +1,20 @@
 class OrdersController < ApplicationController
+  
   def create
-    @vinyl = Vinyl.find(params[:id])
-    @order = Order.create(user_id: params[:user_id],
-                          quantity: params[:quantity],
-                          vinyl_id: params[:vinyl_id])
+    @vinyl = Vinyl.find(params[:vinyl_id])
+    calculated_subtotal = vinyl.price * params[:quantity].to_i
+    calculated_tax = calculated_subtotal * 0.09
+    calculated_total = calculated_subtotal + calculated_tax
 
-    redirect_to "/orders/#{@order.id}"
+    @order = Order.create(user_id: current_user.id,
+                          vinyl_id: params[:vinyl_id],
+                          quantity: params[:quantity],
+                          subtotal: calculated_subtotal,
+                          tax: calculated_tax,
+                          total: calculated_total)
+
     flash[:success] = 'Order Created!'
+    redirect_to "/orders/#{@order.id}"
   end
 
   def show

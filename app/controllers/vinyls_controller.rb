@@ -37,7 +37,8 @@ class VinylsController < ApplicationController
                           description: params[:description],
                           playtime: params[:playtime],
                           label: params[:label],
-                          price: params[:price]
+                          price: params[:price],
+                          img_url: params[:img_url]
                           )
     
     # supplier_id: params[:supplier][:supplier_id] 
@@ -70,7 +71,8 @@ class VinylsController < ApplicationController
                   description: params[:description],
                   playtime: params[:playtime],
                   label: params[:label],
-                  price: params[:price])
+                  price: params[:price],
+                  img_url: params[:img_url])
 
     flash[:success] = "Your data has been updated."
     redirect_to "/vinyls/#{@vinyl.id}"

@@ -1,3 +1,10 @@
+Supplier.create!([
+  {name: "Carrot Top", email: "info@carrottop.com", phone: "312-266-3991"},
+  {name: "Love All Day", email: "info@loveallday.com", phone: "312-666-3992"},
+  {name: "Forced Exposure", email: "info@forcedexposure.com", phone: "773-616-3902"},
+  {name: "Matador", email: "info@matador.com", phone: "701-600-9992"},
+  {name: "MG Art", email: "info@manuelgottsching.com", phone: "702-808-112"}
+])
 Vinyl.create!([
   {artist_name: "Ryley Walker", record_title: "Golden Sings That Have Been Sung", genre: "Improv/Jazz Indie Folk", description: "Chicago's Ryley Walker continues his journey with the fantastic \"Golden Sings That Have Been Sung.\" Walker leads some of the finest players in the improv/ jazz scene with his effortless sounding guitar playing & almost-spoken, stream of consciousness singing style. This limited expanded edition features a 41 minute version of the song \"Sullen Mind\" recorded live for SiriusXM.", playtime: 48, label: "Dead Oceans", price: 19, supplier_id: 1},
   {artist_name: "Celestino", record_title: "Protector's Tea", genre: "Zen Tea Ambient", description: "Featuring beautifully mastered sound by Jae-Soo Yi of Riverman Music in Seoul, in an edition of 300 copies housed in a sturdy, archival old-style LP jacket.", playtime: 30, label: "Love All Day", price: 19, supplier_id: 1},
@@ -8,11 +15,3 @@ Vinyl.create!([
   {artist_name: "Explosions In The Sky & David Wingo", record_title: "Manglehorn", genre: "Soundtracks", description: "EXPLOSIONS IN THE SKY teamed up with David Wingo of OLA PODRIDA a few years back for the soundtrack to the David Gordon Green film \"Prince Avalanche\" & now they return with a score to another Green movie \"Manglehorn.\" There are moments like E.I.T.S. with more subdued, ambient moments mixed in.", playtime: 101, label: "Temporary Residence", price: 19, supplier_id: 2},
   {artist_name: "John Carpenter", record_title: "Lost Themes II", genre: "Sountracks, Electronic, Ghost Music", description: "Haunted and sweet.", playtime: 101, label: "Sacred Bones", price: 20, supplier_id: 1}
 ])
-
-Supplier.create(name: "Carrot Top", email: "info@carrottop.com", phone: "312-266-3991")
-Supplier.create(name: "Love All Day", email: "info@loveallday.com", phone: "312-666-3992")
-Supplier.create(name: "Forced Exposure", email: "info@forcedexposure.com", phone: "773-616-3902")
-Supplier.create(name: "Matador", email: "info@matador.com", phone: "701-600-9992")
-Supplier.create(name: "MG Art", email: "info@manuelgottsching.com", phone: "702-808-112")
-
-
