@@ -3,6 +3,8 @@ class Vinyl < ApplicationRecord
   belongs_to :supplier
   has_many :images
   has_many :orders
+  has_many :category_vinyls
+  has_many :categories, through: :category_vinyls
 
   def images
     Image.where(vinyl_id: self.id)    

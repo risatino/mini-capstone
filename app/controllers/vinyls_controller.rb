@@ -8,6 +8,11 @@ class VinylsController < ApplicationController
     sort_order = params[:sort_order]
     discount_level = params[:discount]
     search_term = params[:search_term]
+    category = params[:category]
+
+    if category
+      @vinyls = Category.find_by(name: category).vinyls
+    end
 
     if search_term
       fuzzy_search_term = "%#{search_term}%"

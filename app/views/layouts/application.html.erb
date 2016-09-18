@@ -65,15 +65,17 @@
                 <li><a href="/vinyls?sort=price">Sort Products By Price (Low To High)</a></li>
                 <li><a href="/vinyls?sort=price&sort_order=desc"> By Price(Sort By High To Low)</a></li>
                 <li><a href="/vinyls?discount=18">Discount Items</a></li>
-                <li><a href="/vinyls/random %>">Random Items</a></li>
-                <li role="separator" class="divider"></li>
+                <li><a href="/vinyls/random%>">Random Items</a></li>
+                
+                <li>CATEGORIES</li>
+                <% Category.all.each do |category| %>
+                  <li><a href="/vinyls?/category=<%= category %>"><%= category.name.titleize %> Records</a></li>
+                <% end %>
 
-                <% if current_user %>
-                  <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
-                <% end %>  
-
+                <li class="divider"></li>
                 <li><a href="/signup %>">Sign Up</a></li>
                 <li><a href="/login %>">Log In</a></li>
+                <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
                 <li><a href="https://reckless.co.uk/">Reckless in London</a></li>
               </ul>
             </li>
