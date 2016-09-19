@@ -43,7 +43,8 @@ class VinylsController < ApplicationController
                           playtime: params[:playtime],
                           label: params[:label],
                           price: params[:price],
-                          supplier_id: params[:supplier_id])
+                          supplier_id: params[:supplier_id],
+                          img_url: params[:img_url])
     
     # supplier_id: params[:supplier][:supplier_id] 
     # must have the foreign key from the associated table

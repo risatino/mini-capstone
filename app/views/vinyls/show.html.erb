@@ -11,6 +11,10 @@
 <p>Total: <%= number_to_currency(@vinyl.total) %>
 <p><%= @vinyl.sale_message %></h4>
 
+<% @vinyl.images.each do | vinyl_item | %>
+  <img src="<%= vinyl_item.img_url %>" alt="<%= @vinyl.record_title %>" class="img-responsive" >
+<% end %>
+
 <%= link_to 'Home', '/vinyls' %>
 <br>
 <%= link_to 'Edit', "/vinyls/#{@vinyl.id}/edit" %>
