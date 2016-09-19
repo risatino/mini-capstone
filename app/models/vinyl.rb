@@ -5,6 +5,7 @@ class Vinyl < ApplicationRecord
   has_many :orders
   has_many :category_vinyls
   has_many :categories, through: :category_vinyls
+  has_many :carted_products
 
   def images
     Image.where(vinyl_id: self.id)    
