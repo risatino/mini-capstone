@@ -2,7 +2,7 @@ class CartedProductsController < ApplicationController
   
   def index
     @user_id = current_user.id
-    @carted_products = CartedProduct.where(status: "Carted")
+    @carted_products = CartedProduct.where(status: "carted").where(user_id: current_user.id)  
   end
 
   def create

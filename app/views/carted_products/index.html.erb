@@ -1,4 +1,6 @@
-<p><% @carted_products.each do |carted_product| %></p>
- <h2>Product Artist<%= carted_product.vinyl_id %></h2>
- <p>Quantity: <%= carted_product.quantity %></p>
+<% @carted_products.each do |carted_product| %>
+ <h1>Product Artist ID No. <%= carted_product.vinyl_id %></h1>
+ <h1>Quantity: <%= carted_product.quantity %></h1>
 <% end %>
+
+<%= submit_tag 'Buy Now' %>

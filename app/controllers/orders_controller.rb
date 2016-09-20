@@ -20,4 +20,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @vinyl = @order.vinyl  
   end
+
+  def method_name
+    
+  end
 end
