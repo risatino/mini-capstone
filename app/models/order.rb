@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :vinyl
   has_many :carted_products
+  has_many :vinyls, through: :carted_products
+  
 
   def pretty_created_at
     created_at.strftime("%A, %b %d")    

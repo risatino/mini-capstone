@@ -1,6 +1,6 @@
+<h2>Checkout Page</h2>
 <% @carted_products.each do |carted_product| %>
- <h1>Product Artist ID No. <%= carted_product.vinyl_id %></h1>
- <h1>Quantity: <%= carted_product.quantity %></h1>
+ <h1>Product Album Title <%= carted_product.vinyl.album_title %> - Quantity: <%= carted_product.quantity %></h1>
 <% end %>
 
-<%= submit_tag 'Buy Now' %>
+<%= link_to 'Buy Now!', '/orders', method: :post, class: "btn btn-danger" %>
