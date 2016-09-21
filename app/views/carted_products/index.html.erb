@@ -1,6 +1,6 @@
 <h2>Checkout Page</h2>
 <% @carted_products.each do |carted_product| %>
- <h1>Product Album Title <%= carted_product.vinyl.album_title %> - Quantity: <%= carted_product.quantity %></h1>
+ <h1>Product Album Title <%= carted_product.vinyl.record_title %> - Quantity: <%= carted_product.quantity %> - <%= link_to 'remove', "/carted_products/#{carted_product.id}", method: :delete %></h1>
 <% end %>
 
 <%= link_to 'Buy Now!', '/orders', method: :post, class: "btn btn-danger" %>

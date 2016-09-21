@@ -1,16 +1,10 @@
 class OrdersController < ApplicationController
   
   def create
-    @vinyl = Vinyl.find(params[:vinyl_id])
-
-    @order = Order.new(user_id: current_user.id,
-                        vinyl_id: params[:vinyl_id],
-                        quantity: params[:quantity].to_i)
-
-    @order.calculate_subtotal(vinyl)
-    @order.calculate_tax
-    @order.calculate_total
-    @order.save
+    @carted_products = current_user.currently_carted
+    @order = Order.create(user_id: current_user.id)
+    @carted_products.update_all(order_id: @order.id, status: "purchased")
+    @order.calculate_totals
 
     flash[:success] = 'Order Created!'
     redirect_to "/orders/#{@order.id}"
@@ -18,10 +12,6 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @vinyl = @order.vinyl  
   end
 
-  def method_name
-    
-  end
 end

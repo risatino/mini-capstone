@@ -12,15 +12,15 @@ class Order < ApplicationRecord
     2001 + id
   end
 
-  def calculate_subtotal(vinyl_object)
-    self.subtotal = vinyl_object.price * params[:quantity].to_i    
-  end
+  def calculate_totals
+    subtotal_collector = 0
+    carted_products.each do |carted_product|
+      subtotal_collector += carted_product.subtotal
+    end
 
-  def calculate_tax
+    self.subtotal = subtotal_collector
     self.tax = subtotal * 0.09
-  end
-
-  def calculate_total
     self.total = subtotal + tax
+    save
   end
 end

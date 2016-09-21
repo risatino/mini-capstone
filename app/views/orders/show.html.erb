@@ -1,6 +1,12 @@
 <h1><%= current_user.name %>This is your order.</h1>
+
 <p>Order ID, Artist Name: <%= @order.id_present_to_customer %>, <%= @order.vinyl.artist_name %></p>
 <p>Purchased At <%= @order.pretty_created_at %></p>
+
+<% @order.carted_products.each do |carted_product| %>
+<h2><%= carted_product.vinyl.record_title %> - Quantity: <%= carted_product.quantity %></h2>
+<% end %>
+
 <p>Order Vinyl Quantity: <%= @order.quantity %></p>
 <br>
 <!-- <img src="<= @vinyl.top_image %>" alt="<= @vinyl.name %>"> -->

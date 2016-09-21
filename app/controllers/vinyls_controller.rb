@@ -3,7 +3,7 @@ class VinylsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :new]
 
   def index
-    @vinyls = Vinyl.all
+    @vinyls = Vinyl.all.includes(:images)
     sort_attribute = params[:sort]
     sort_order = params[:sort_order]
     discount_level = params[:discount]
