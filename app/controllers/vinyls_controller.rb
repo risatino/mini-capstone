@@ -1,6 +1,5 @@
 class VinylsController < ApplicationController
-
-  before_action :authenticate_user!, except: [:index, :new]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @vinyls = Vinyl.all.includes(:images)
@@ -9,6 +8,8 @@ class VinylsController < ApplicationController
     discount_level = params[:discount]
     search_term = params[:search_term]
     category = params[:category]
+
+    @cart_count = current_user.currently_carted.count
 
     if category
       @vinyls = Category.find_by(name: category).vinyls
@@ -32,19 +33,22 @@ class VinylsController < ApplicationController
   end
 
   def new
-  
+    unless current_user && current_user.admin
+      redirect_to '/'
+    end
   end
 
   def create
-    @vinyl = Vinyl.create(artist_name: params[:artist_name], 
-                          record_title: params[:record_title],
-                          genre: params[:genre],
-                          description: params[:description],
-                          playtime: params[:playtime],
-                          label: params[:label],
-                          price: params[:price],
-                          supplier_id: params[:supplier_id],
-                          img_url: params[:img_url])
+      @vinyl = Vinyl.create(artist_name: params[:artist_name], 
+                            record_title: params[:record_title],
+                            genre: params[:genre],
+                            description: params[:description],
+                            playtime: params[:playtime],
+                            label: params[:label],
+                            price: params[:price],
+                            supplier_id: params[:supplier_id],
+                            img_url: params[:img_url])
+
     
     # supplier_id: params[:supplier][:supplier_id] 
     # must have the foreign key from the associated table
@@ -56,31 +60,27 @@ class VinylsController < ApplicationController
   end
 
   def show
-    # if params[:id] == "random"
       @vinyl = Vinyl.all.sample
       @supplier = @vinyl.supplier
-    # else
-    #   @vinyl = Vinyl.find(params[:id])
-    # end
   end
 
   def edit
-    @vinyl = Vinyl.find(params[:id])      
+      @vinyl = Vinyl.find(params[:id])  
   end
 
   def update
-    @vinyl = Vinyl.find(params[:id])
-    @vinyl.update(artist_name: params[:artist_name], 
-                  record_title: params[:record_title],
-                  genre: params[:genre],
-                  description: params[:description],
-                  playtime: params[:playtime],
-                  label: params[:label],
-                  price: params[:price],
-                  img_url: params[:img_url])
+      @vinyl = Vinyl.find(params[:id])
+      @vinyl.update(artist_name: params[:artist_name], 
+                    record_title: params[:record_title],
+                    genre: params[:genre],
+                    description: params[:description],
+                    playtime: params[:playtime],
+                    label: params[:label],
+                    price: params[:price],
+                    img_url: params[:img_url])
 
-    flash[:success] = "Your data has been updated."
-    redirect_to "/vinyls/#{@vinyl.id}"
+      flash[:success] = "Your data has been updated."
+      redirect_to "/vinyls/#{@vinyl.id}"  
   end
 
   def destroy
@@ -88,7 +88,7 @@ class VinylsController < ApplicationController
     @vinyl.destroy
     
     flash[:warning] = "And...your data...she gone...bai bai."
-    redirect_to '/vinyls'
+    redirect_to '/vinyls'   
   end
 
   def random

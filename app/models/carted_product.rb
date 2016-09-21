@@ -4,6 +4,6 @@ belongs_to :user
 belongs_to :order, optional: true
 
 def subtotal
-  quantity * product.price
+  quantity * vinyl.price
 end
 end
