@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     @carted_products.update_all(order_id: @order.id, status: "purchased")
     @order.calculate_totals
 
+    session[:cart_count] = nil
     flash[:success] = 'Order Created!'
     redirect_to "/orders/#{@order.id}"
   end

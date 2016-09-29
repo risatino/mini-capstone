@@ -33,9 +33,7 @@ class VinylsController < ApplicationController
   end
 
   def new
-    unless current_user && current_user.admin
-      redirect_to '/'
-    end
+    @vinyl = Vinyl.new
   end
 
   def create
@@ -46,17 +44,21 @@ class VinylsController < ApplicationController
                             playtime: params[:playtime],
                             label: params[:label],
                             price: params[:price],
-                            supplier_id: params[:supplier_id],
-                            img_url: params[:img_url])
+                            supplier_id: params[:supplier_id]
+                            )
 
-    
+    if @vinyl.save
+      Image.create(img_url: params[:img_url], vinyl_id: @vinyl.id) if params[:image]
     # supplier_id: params[:supplier][:supplier_id] 
     # must have the foreign key from the associated table
     # same as Image model table bmust have the vinyl_id: params[:vinyl_id] 
-    # need to add Image code here Image.create(url: params[:image], product_id: @product.id)
+    # need to add Image code here Image.create(img_url: params[:image], product_id: @product.id)
 
-    flash[:success] = "Your data has been received."
-    redirect_to "/vinyls/#{@vinyl.id}"
+      flash[:success] = "Your data has been received."
+      redirect_to "/vinyls/#{@vinyl.id}"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def show

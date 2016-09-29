@@ -1,5 +1,13 @@
 
 class Vinyl < ApplicationRecord
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :price, presence: true
+  validates :price, numericality: true
+  validates :description, presence: true
+  validates :description, length: { in: 100..300}
+  
   belongs_to :supplier
   has_many :images
   has_many :carted_products

@@ -73,9 +73,16 @@
                 <% end %>
 
                 <li class="divider"></li>
-                <li><a href="/signup">Sign Up</a></li>
-                <li><a href="/login">Log In</a></li>
-                <!-- update here -->
+                <% if current_user %>
+                  <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
+                <% else %>
+                  <li><a href="/signup">Sign Up</a></li>
+                  <li><a href="/login">Log In</a></li>
+                <% end %>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "<span class='glyphicon glyphicon-shopping-cart'></span> Cart(#{@cart_count})".html_safe, "/carted_products" %>
+            </li>
                 <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
                 <li><a href="https://reckless.co.uk/">Reckless in London</a></li>
               </ul>

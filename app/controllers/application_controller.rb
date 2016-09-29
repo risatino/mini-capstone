@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]   
   end
+  
   helper_method :current_user
 
 private
@@ -25,7 +26,12 @@ private
 
   def calculate_cart_count
     if current_user
-      @cart_count = current_user.currently_carted.count   
+      if session[:cart_count]
+        @cart_count = session[:cart_count]
+      else
+        @cart_count = current_user.currently_carted.count   
+        session[:cart_count] = @cart_count
+      end
     else
       @cart_count = 0
     end 
