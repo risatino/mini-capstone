@@ -44,8 +44,7 @@ class VinylsController < ApplicationController
                             playtime: params[:playtime],
                             label: params[:label],
                             price: params[:price],
-                            supplier_id: params[:supplier_id]
-                            )
+                            supplier_id: params[:supplier_id])
 
     if @vinyl.save
       Image.create(img_url: params[:img_url], vinyl_id: @vinyl.id) if params[:image]
