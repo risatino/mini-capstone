@@ -9,7 +9,7 @@ class VinylsController < ApplicationController
     search_term = params[:search_term]
     category = params[:category]
 
-    @cart_count = current_user.currently_carted.count
+    # @cart_count = current_user.currently_carted.count
 
     if category
       @vinyls = Category.find_by(name: category).vinyls
