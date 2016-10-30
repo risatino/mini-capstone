@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get '/carted_products' => 'carted_products#index'
   delete '/carted_products/:id' => 'carted_products#destroy'
 
+  get '/' => 'tests#index'
+
 end  
   # get '/vinyls/new' => 'vinyls#new'
   # get '/' => 'vinyls#all_artists'
