@@ -1,14 +1,16 @@
-<div class="row">
-<% @vinyls.each do |vinyl| %>
-  <div class="col-md-12">
-    <h2><a href="/vinyls/<%= vinyl.id %>"><%= vinyl.artist_name %></a></h2>
-    <p>Price: <%= number_to_currency(vinyl.price) %></p>
-    <h2>Album Title: <%= vinyl.record_title %></h2>
-    <h4>Genre: <%= vinyl.genre %></h4>
-    <h4>Description: <%= vinyl.description %></h4>
-    <h4>Playtime: <%= vinyl.friendly_playtime %></h4>
-    <h4>Record Label: <%= vinyl.label %></h4>
-    <h5>Added To Reckless Inventory On: <%= vinyl.friendly_updated_at %>
+<div class="container">
+  <div class="row">
+    <% @vinyls.each do |vinyl| %>
+      <div class="col-md-12">
+          <h2><a href="/vinyls/<%= vinyl.id %>"><%= vinyl.artist_name %></a></h2>
+          <p>Price: <%= number_to_currency(vinyl.price) %></p>
+          <h2>Album Title: <%= vinyl.record_title %></h2>
+          <h4>Genre: <%= vinyl.genre %></h4>
+          <h4>Description: <%= vinyl.description %></h4>
+          <h4>Playtime: <%= vinyl.friendly_playtime %></h4>
+          <h4>Record Label: <%= vinyl.label %></h4>
+          <h5>Added To Reckless Inventory On: <%= vinyl.friendly_updated_at %>
+      </div>
+    <% end %>
   </div>
-<% end %>
 </div>
