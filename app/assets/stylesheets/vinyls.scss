@@ -14,3 +14,12 @@ h2 {
 h5 {
   font-style: italic;
 }
+
+.hero-image {
+  background-image: image-url('record-336626_1920.jpg');
+  height: 42em;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  position: relative;
+}
