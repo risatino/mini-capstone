@@ -2,8 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// typography variables
+$font-main: 'Heebo', sans-serif;
+$font-weight-headings: 900;
+$font-weight-body: 400;
+$font-weight-light: 300;
+
+h1, h2 {
+  font-weight: $font-weight-headings;
+}
+
 body { 
-  font-family: "Franklin Gothic Medium","Franklin Gothic","ITC Franklin Gothic", Arial,sans-serif;
+  font-weight: $font-weight-body;
   background-image: url('seigaiha.png');
 }
 
