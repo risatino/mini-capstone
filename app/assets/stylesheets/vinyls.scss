@@ -52,35 +52,19 @@ h5 {
 //   background: #FAFAFA
 // }
 
-button.hover-feature {
-  padding: 20px 40px;
-  background: none;
-  border: none;
-  position: relative;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 3px;
-  cursor: pointer;
+/* hover */ 
+body > button.new-vinyl {
+    background: #428BCA;
+    color: #fff;
+    height: 80px;
+    width: 200px;
+    line-height: 60px;
+    margin: 20px 20px;
+    text-align: center;
+    border: 0;
+    transition: all 0.3s ease 0s;
+}
 
-  &:after, &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    border: 2px solid #000;
-    transition: transform .2s;
-    } 
-  &:after {
-    transform: translate(3px, 3px);  
-  }
-  &:before {
-    transform: translate(-3px, -3px);
-  }
-  &:hover {
-    &:after, &:before {
-      transform: translate(0);
-    }
-  }
+button:hover {
+  background: #CF4647;
 }
