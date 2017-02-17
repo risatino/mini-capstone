@@ -1,4 +1,4 @@
-# ReDesign Staging: RECKLESS RECORDS
+# ReDesign Staging For Reckless Records
 
 ## Local
 
