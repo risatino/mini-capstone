@@ -1,4 +1,4 @@
-# ReDesign For Reckless Records Website
+# ReDesign For Record Store Website
 
 ## Local
 
@@ -19,3 +19,7 @@
 ### Environment Variables
 
 * ```touch .env```
+
+### Paperclip Gem
+
+* compatible with AWS image hosting or paperclip-dropbox
