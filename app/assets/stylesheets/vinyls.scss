@@ -8,6 +8,17 @@ $font-weight-headings: 900;
 $font-weight-body: 400;
 $font-weight-light: 300;
 
+$blue: #00F;
+$red: #F00;
+$yellow: #ff0;
+$grey: #555;
+
+$link-color: $blue;
+
+.component a {
+  color: $link-color;
+}
+
 h1, h2 {
   font-weight: $font-weight-headings;
 }
@@ -18,7 +29,7 @@ body {
 }
 
 h2 {
-  color: #555;
+  color: $grey;
 }
 
 h5 {
