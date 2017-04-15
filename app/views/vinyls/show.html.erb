@@ -1,42 +1,43 @@
 <div class="container">
-  <b>REALLY GOOD MUSIC WARNING: </b>{ <span class="heart">heart beats</span>
-  <span>to music purchased }</span>
-</div>
 <section>
-<h2>Artist: <%= @vinyl.artist_name %>
-<p>Album Title: <%= @vinyl.record_title %></h2>
-<p>
-<h4>Genre: <%= @vinyl.genre %>
-<p>Description: <%= @vinyl.description %>
-<p><%= "#{@vinyl.playtime}" %>
-<p>Record Label: <%= @vinyl.label %>
-<p>Price: <%= number_to_currency(@vinyl.price) %>
-<p>Tax: <%= number_to_currency(@vinyl.tax) %>
-<p>Total: <%= number_to_currency(@vinyl.total) %>
-<p><%= @vinyl.sale_message %></h4>
+  <h2>Artist: <%= @vinyl.artist_name %></h2>
+  <h3 class="red">Album Title: <%= @vinyl.record_title %></h3>
+  <h4>Genre: <%= @vinyl.genre %>
+  <p>Description: <%= @vinyl.description %>
+  <p><%= "#{@vinyl.playtime}" %>
+  <p>Record Label: <%= @vinyl.label %>
+  <p>Price: <%= number_to_currency(@vinyl.price) %>
+  <p>Tax: <%= number_to_currency(@vinyl.tax) %>
+  <p>Total: <%= number_to_currency(@vinyl.total) %>
+  <p><%= @vinyl.sale_message %></h4>
 
-<% @vinyl.images.each do | vinyl_item | %>
-  <img src="<%= vinyl_item.img_url %>" alt="<%= @vinyl.record_title %>" class="img-responsive" >
-<% end %>
+  <% @vinyl.images.each do | vinyl_item | %>
+    <img src="<%= vinyl_item.img_url %>" alt="<%= @vinyl.record_title %>" class="img-responsive" >
+  <% end %>
 
-<%= link_to 'Home', '/vinyls' %>
-<br>
-<%= link_to 'Edit', "/vinyls/#{@vinyl.id}/edit" %>
-<br>
-<%= link_to 'Delete', "/vinyls/#{@vinyl.id}", method: :delete %>
+  <%= link_to 'Home', '/vinyls' %>
+  <br>
+  <%= link_to 'Edit', "/vinyls/#{@vinyl.id}/edit" %>
+  <br>
+  <%= link_to 'Delete', "/vinyls/#{@vinyl.id}", method: :delete %>
 
-<p><a href="/suppliers/<%= @supplier.id %>"></a>Supplied By: <%= @supplier.name %></p>
-</section>
-
-<h1>Buy Vinyl</h1>
-<%= form_tag '/carted_products', method: :post do %>
-  <div>
-    <%= hidden_field_tag :vinyl_id, @vinyl.id %>
+  <p><a href="/suppliers/<%= @supplier.id %>"></a>Supplied By: <%= @supplier.name %></p>
+  </section>
+</div>
+<div class="container">
+  <div class="row">
+    <h1>Buy Vinyl</h1>
+    <%= form_tag '/carted_products', method: :post do %>
+      <div>
+        <%= hidden_field_tag :vinyl_id, @vinyl.id %>
+      </div>
+      <div>
+        <%= text_field_tag :quantity, nil, placeholder: "Quantity" %>
+      </div>
+      <div>
+        <%= submit_tag 'Add To Cart', class:"btn btn-success" %>
+      </div> 
+    <% end %>
   </div>
-  <div>
-    <%= text_field_tag :quantity, nil, placeholder: "Quantity" %>
-  </div>
-  <div>
-    <%= submit_tag 'Add To Cart', class:"btn btn-success" %>
-  </div> 
-<% end %>
+  <br>
+</div>

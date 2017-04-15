@@ -9,7 +9,7 @@ $font-weight-body: 400;
 $font-weight-light: 300;
 
 $blue: #0645AD;
-$red: #F00;
+$red: #800000;
 $yellow: #FF0;
 $grey: #555;
 
@@ -57,5 +57,15 @@ h5 {
 .indent {
   padding-left: 20px;
 }
+
+.red {
+  color: $red;
+}
+
+span.heart {
+  color: $red;
+}
+
+
 
 

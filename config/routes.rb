@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/vinyls/random' => 'vinyls#random'
 
   get '/vinyls/chat' => 'vinyls#chat'
+  get '/story' => 'vinyls#story'
 
   get '/vinyls/new' => 'vinyls#new'
   post '/vinyls' => 'vinyls#create'
