@@ -47,7 +47,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
-    climate_control (0.1.0)
+    climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.2.1)
@@ -91,7 +91,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    paperclip (5.0.0)
+    paperclip (5.2.1)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
@@ -186,7 +186,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
-  paperclip (~> 5.0.0)
+  paperclip (~> 5.2.0)
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
@@ -201,4 +201,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.13.7
+   1.16.0.pre.3
